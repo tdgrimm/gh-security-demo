@@ -68,15 +68,15 @@ jobs:
       - name: Get AWS permissions
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::450226343468:role/GitHubDemo1
-          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::626635404750:role/GitHubDemo1
+          aws-region: us-east-2
       - name: Deploy site
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
         with:
-          bucket: gha-security-hosting-demo
+          bucket: tg-gha-security-hosting-demo
           dist-folder: ./dist
-          # bucket-region: us-east-2
+          bucket-region: us-east-2
       - name: Output information
         run: |
           echo "Live URL: ${{ steps.deploy.outputs.website-url }}"
